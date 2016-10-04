@@ -50,7 +50,21 @@ int main(void)
 {
   int i = 0;
 
-  /**
+ RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA,ENABLE);
+
+ GPIO_InitTypeDef mojaSt;
+
+ mojaSt.GPIO_Mode=GPIO_Mode_OUT;
+ mojaSt.GPIO_OType=GPIO_OType_PP;
+ mojaSt.GPIO_PuPd=GPIO_PuPd_UP;
+ mojaSt.GPIO_Speed=GPIO_Speed_40MHz;
+ mojaSt.GPIO_Pin=GPIO_Pin_5;
+
+ GPIO_Init(GPIOA,&mojaSt);
+
+
+
+   /**
   *  IMPORTANT NOTE!
   *  See the <system_*.c> file and how/if the SystemInit() function updates 
   *  SCB->VTOR register. Sometimes the symbol VECT_TAB_SRAM needs to be defined 
