@@ -60,7 +60,22 @@ int main(void)
  mojaSt.GPIO_Speed=GPIO_Speed_40MHz;
  mojaSt.GPIO_Pin=GPIO_Pin_5;
 
+
+
  GPIO_Init(GPIOA,&mojaSt);
+
+ GPIO_Write(GPIOA,0b1<<5);
+ GPIO_Write(GPIOA,0b0<<5);
+
+ GPIO_SetBits(GPIOA,GPIO_Pin_5);
+ GPIO_ResetBits(GPIOA,GPIO_Pin_5);
+
+ GPIO_ToggleBits(GPIOA,GPIO_Pin_5);
+
+
+ GPIO_ToggleBits(GPIOA,GPIO_Pin_5);
+
+
 
 
 
