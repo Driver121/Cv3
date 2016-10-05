@@ -49,7 +49,10 @@ SOFTWARE.
 int main(void)
 {
   int i = 0;
-  int button=0;
+  int j = 0;
+  int k = 0;
+  int l = 0;
+  int button = 0;
 
  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA,ENABLE);
 
@@ -116,7 +119,22 @@ int main(void)
   /* Infinite loop */
   while (1)
   {
+	 /*
 	 button = GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_13);
+	 */
+	  for(j=0;j<15;j++)
+		  	 	  {
+		  	 		  for (l=0;l<50000;l++)
+		  	 		  {
+		  	 		    GPIO_SetBits(GPIOA,GPIO_Pin_5);
+		  	 		  }
+		  	 		  for(k=0;k<50000;k++)
+		  	 		  {
+		  	 			  GPIO_ResetBits(GPIOA,GPIO_Pin_5);
+		  	 		  }
+
+		  	 	  }
+
 	i++;
   }
   return 0;
