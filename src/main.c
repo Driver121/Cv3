@@ -49,6 +49,7 @@ SOFTWARE.
 int main(void)
 {
   int i = 0;
+  int button=0;
 
  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA,ENABLE);
 
@@ -63,7 +64,7 @@ int main(void)
 
 
  GPIO_Init(GPIOA,&mojaSt);
-
+/*
  GPIO_Write(GPIOA,0b1<<5);
  GPIO_Write(GPIOA,0b0<<5);
 
@@ -71,9 +72,22 @@ int main(void)
  GPIO_ResetBits(GPIOA,GPIO_Pin_5);
 
  GPIO_ToggleBits(GPIOA,GPIO_Pin_5);
-
-
  GPIO_ToggleBits(GPIOA,GPIO_Pin_5);
+*/
+
+ RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOC,ENABLE);
+
+  GPIO_InitTypeDef mojaSt2;
+
+  mojaSt2.GPIO_Mode=GPIO_Mode_IN;
+  mojaSt2.GPIO_OType=GPIO_OType_PP;
+  mojaSt2.GPIO_PuPd=GPIO_PuPd_NOPULL;
+  mojaSt2.GPIO_Pin=GPIO_Pin_13;
+
+
+
+  GPIO_Init(GPIOC,&mojaSt2);
+
 
 
 
@@ -102,6 +116,7 @@ int main(void)
   /* Infinite loop */
   while (1)
   {
+	 button = GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_13);
 	i++;
   }
   return 0;
