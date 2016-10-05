@@ -119,9 +119,10 @@ int main(void)
   /* Infinite loop */
   while (1)
   {
-	 /*
+
 	 button = GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_13);
-	 */
+
+	  /*
 	  for(j=0;j<15;j++)
 		  	 	  {
 		  	 		  for (l=0;l<50000;l++)
@@ -134,7 +135,15 @@ int main(void)
 		  	 		  }
 
 		  	 	  }
+      */
 
+
+	  if (button == 1){
+	  	  		GPIO_ResetBits(GPIOA,GPIO_Pin_5);
+	  	  	}
+	  	  	else if (button == 0){
+	  	  	GPIO_SetBits(GPIOA,GPIO_Pin_5);
+	  	  	}
 	i++;
   }
   return 0;
